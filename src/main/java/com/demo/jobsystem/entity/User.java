@@ -1,34 +1,21 @@
 package com.demo.jobsystem.entity;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name="user")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
     private Long id;
-
-    @Column(name = "user_username", unique = true, nullable = false)
     private String username;
-
-    @Column(name = "user_password", nullable = false)
     private String password;
-
-    @Column(name = "user_role", nullable = false)
     private String role;
-
-
-    // Constructors, getters, and setters
-    // Omitted for brevity
 
     public User() {
     }
 
-    public User(Long id, String username, String password, String role, String avatar) {
+    public User(Long id, String username, String password, String role) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -37,10 +24,6 @@ public class User {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getUsername() {
@@ -53,6 +36,10 @@ public class User {
 
     public String getRole() {
         return role;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setUsername(String username) {
